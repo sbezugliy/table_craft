@@ -8,34 +8,34 @@ require "table_craft"
 # with your gem easier. You can also use a different console, if you like.
 
 module Renderer
-  
   include ::TableCraft
 
-  def self.call
-    print Table.new.(width: "300px", height: "200px", styles: {border: "1px solid", cellpadding: "5px"}) do
-      THead.new.() do
-        TR.new.() do
-          TH.new.() { "th 1" }
-          TH.new.() { "th 2" }
-          TH.new.() { "th 3" }
+  class << self
+    def call
+      print(Table.new.call(width: "300px", height: "200px", styles: { border: "1px solid", cellpadding: "5px" })) do
+        THead.new.call do
+          TR.new.call do
+            TH.new.call { "th 1" }
+            TH.new.call { "th 2" }
+            TH.new.call { "th 3" }
+          end
         end
-      end
-      TBody.new.() do
-        TR.new.() do
-          TD.new.() { "td 1" }
-          TD.new.() { "td 2" }
-          TD.new.() { "td 3" }
-        end
-        
-        TR.new.() do
-          TD.new.() { "td 1" }
-          TD.new.() { "td 2" }
-          TD.new.() { "td 3" }
+        TBody.new.call do
+          TR.new.call do
+            TD.new.call { "td 1" }
+            TD.new.call { "td 2" }
+            TD.new.call { "td 3" }
+          end
+
+          TR.new.call do
+            TD.new.call { "td 1" }
+            TD.new.call { "td 2" }
+            TD.new.call { "td 3" }
+          end
         end
       end
     end
   end
-
 end
 
 Renderer.call

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "table_craft/version"
-require 'w3c_validators'
+require "w3c_validators"
 
 module TableCraft
   class Error < StandardError; end

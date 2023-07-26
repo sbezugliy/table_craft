@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module TableCraft
   class TD < WrapperTag
-    def initialize
+    def initialize(*args)
       @tag = "td"
-    end  
+      super(*args)
+    end
   end
 end
