@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "table_craft"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+module Renderer
+  
+  include ::TableCraft
+
+  def self.call
+    Table.new.call do
+      THead.new.call do
+        TR.new.call do
+          TH.new.call { puts "th 1" }
+          TH.new.call { puts "th 2" }
+          TH.new.call { puts "th 3" }
+        end
+      end
+      TBody.new.call do
+        TR.new.call do
+          TD.new.call { puts "td 1" }
+          TD.new.call { puts "td 2" }
+          TD.new.call { puts "td 3" }
+        end
+        
+        TR.new.call do
+          TD.new.call { puts "td 1" }
+          TD.new.call { puts "td 2" }
+          TD.new.call { puts "td 3" }
+        end
+      end
+    end
+  end
+
+end
+
+Renderer.call
