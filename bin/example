@@ -12,25 +12,25 @@ module Renderer
   include ::TableCraft
 
   def self.call
-    Table.new.call do
-      THead.new.call do
-        TR.new.call do
-          TH.new.call { puts "th 1" }
-          TH.new.call { puts "th 2" }
-          TH.new.call { puts "th 3" }
+    print Table.new.(width: "300px", height: "200px", styles: {border: "1px solid", cellpadding: "5px"}) do
+      THead.new.() do
+        TR.new.() do
+          TH.new.() { "th 1" }
+          TH.new.() { "th 2" }
+          TH.new.() { "th 3" }
         end
       end
-      TBody.new.call do
-        TR.new.call do
-          TD.new.call { puts "td 1" }
-          TD.new.call { puts "td 2" }
-          TD.new.call { puts "td 3" }
+      TBody.new.() do
+        TR.new.() do
+          TD.new.() { "td 1" }
+          TD.new.() { "td 2" }
+          TD.new.() { "td 3" }
         end
         
-        TR.new.call do
-          TD.new.call { puts "td 1" }
-          TD.new.call { puts "td 2" }
-          TD.new.call { puts "td 3" }
+        TR.new.() do
+          TD.new.() { "td 1" }
+          TD.new.() { "td 2" }
+          TD.new.() { "td 3" }
         end
       end
     end

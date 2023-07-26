@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "table_craft/version"
+require "table_craft/version"
+require 'w3c_validators'
 
 module TableCraft
   class Error < StandardError; end
@@ -9,6 +10,10 @@ end
 
 # require_relative "table_craft/dsl"
 
+# Stylesheet builder
+require "table_craft/styles"
+
+# HTML table builder
 require "table_craft/wrapper_tag"
 require "table_craft/table"
 require "table_craft/table/t_head"
