@@ -1,23 +1,22 @@
 # frozen_string_literal: true
-
+require "zeitwerk"
+require "phlex"
 require "table_craft/version"
 require "w3c_validators"
+require 'htmlbeautifier'
 
+loader = Zeitwerk::Loader.for_gem
+loader.setup
+
+ # optionally
 module TableCraft
   class Error < StandardError; end
-  # Your code goes here...
+  
+  ATTRIBUTES = %i[source title cols rows border cellpadding width height header output].freeze
+  
+  def self.source(source_file)
+    ::TableCraft::Dsl::Source.source(source_file)
+  end
 end
 
-# require_relative "table_craft/dsl"
-
-# Stylesheet builder
-require "table_craft/styles"
-
-# HTML table builder
-require "table_craft/wrapper_tag"
-require "table_craft/table"
-require "table_craft/table/t_head"
-require "table_craft/table/t_body"
-require "table_craft/table/t_h"
-require "table_craft/table/t_r"
-require "table_craft/table/t_d"
+loader.eager_load

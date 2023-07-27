@@ -31,8 +31,12 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency("zeitwerk")
   spec.add_dependency("rake", "~> 13.0")
   spec.add_dependency("w3c_validators")
+  spec.add_dependency("phlex")
+  spec.add_dependency("htmlbeautifier")
+
 
   # Uncomment to register a new dependency of your gem
   spec.add_development_dependency("rake", "~> 13.0")
