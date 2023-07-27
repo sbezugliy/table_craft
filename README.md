@@ -44,21 +44,35 @@ This folder also contains stylesheets and input data tables in formats of the Co
 ```ruby
 # main closure of the single table build scriptlet
 build_table do
+
+  # input data format(possible is `csv` of `tsv`) and data table source file, without header row(only data)
   source "tsv", "input/data.tsv"
 
+  # HTML template title tag naming page
   title "Import from Fixed Length Field File to the File"
 
-  
+  # Table width attribute
   width "100px"
+  
+  # Table height attribute
   height "100px"
+  
+  # Table border size
   border "2"
+  
+  # Table cellpadding attribute in pixels, without units
   cellpadding "4"
 
+  # Set of table headers
   header ["#", "Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]
 
+  # Stylesheet for the table
   styles "input/styles_2.css"
   
+  # Flag indicating about formatting document before output
   formatted true
+  
+  # Outputter type(possible is `print` and `file`) and destination file path 
   output "file", "output/table_formatted.html"
 end
 
