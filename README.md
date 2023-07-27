@@ -13,8 +13,8 @@ Implemented:
  - Traversing of the `height`, `width`, `border`, `cellpadding` table tag attributes
  - Custom header column names
  - traversing of title tag for the HTML template   
- - Facade data source adapter for CSV and TSV files
- - Facade output adapter for STDOUT print and File exporting to the folder
+ - Data source adapter for CSV and TSV files
+ - Output adapter for STDOUT print and File exporting to the folder
  - Possible to generate multiple tables from one script using series of `build_table` scriptlets
  
 Used gems:
