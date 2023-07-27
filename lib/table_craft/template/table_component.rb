@@ -5,11 +5,11 @@ module TableCraft
         @headers = headers
         @data = data
         @table_attrs = table_attrs
-        # @size_limits = size_limits
         super()
       end
     
       def template
+        pp @table_attrs
     		table(class: "table", **@table_attrs) do
           render THeadComponent.new(@headers)
           render TBodyComponent.new(@data)

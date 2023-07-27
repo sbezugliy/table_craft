@@ -2,8 +2,7 @@ module TableCraft
   module Output
     class HtmlFile < ::TableCraft::Output::Base
       def output(path)
-        pp path
-        format if @formatted
+        format #if @formatted
         @path = path
         ensure_path
         save

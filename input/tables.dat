@@ -14,7 +14,7 @@ build_table do
   border "2px"
   cellpadding "4px"
 
-  header ["#", "Col 1", "Col 2", "Col 3", "Col 4"]
+  header ["#", "Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]
   
   styles "input/styles_1.css"
   
@@ -35,7 +35,7 @@ build_table do
   border "2px"
   cellpadding "4px"
 
-  header (["#", "Col 1", "Col 2", "Col 3", "Col 4"])
+  header ["#", "Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]
 
   styles "input/styles_2.css"
   
@@ -57,7 +57,7 @@ build_table do
   border "2px"
   cellpadding "4px"
 
-  header ["#", "Col 1", "Col 2", "Col 3", "Col 4"]
+  header ["#", "Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]
   
   styles "input/styles_1.css"
   
@@ -77,7 +77,7 @@ build_table do
   border "2px"
   cellpadding "4px"
 
-  header (["#", "Col 1", "Col 2", "Col 3", "Col 4"])
+  header ["#", "Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]
   
   styles "input/styles_2.css"
   

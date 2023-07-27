@@ -4,17 +4,21 @@ module TableCraft
   class Styles
     include W3CValidators
 
-    attr_accessor :selector, :properties
+    attr_accessor :styles
     attr_reader :validation, :css
 
-    def initialize(styles)
-      @styles = styles
+    def initialize(path)
+      @styles = read(path)
       @validator = CSSValidator.new
       validate
       @styles
     end
 
     private
+
+    def read(path)
+      File.read(path)
+    end
 
     def validate
       @validation = @validator.validate_text(@styles)

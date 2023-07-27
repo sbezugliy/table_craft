@@ -13,7 +13,6 @@ module TableCraft
     def output=(*args)
       collect_table_attrs
       build_document
-      pp args
       run_output(*args)
     end
     
@@ -22,12 +21,15 @@ module TableCraft
     def run_output(*args)
       type = args[0][0]
       path = args[0][1] || nil
-      pp type
       return ::TableCraft::Output::Adapter.new(type, @document, @formatted).data.output(path)
     end
 
     def build_document
-      @document = ::TableCraft::Template::Document.new().call {|t| template_params[t] }
+      @document = ::TableCraft::Template::Document.new(
+        @header,
+        ::TableCraft::DataSource::Adapter.new(*@source).data,
+        @table_attrs
+      ).call {|t| template_params[t] }
     end
     
     def collect_table_attrs
@@ -35,22 +37,14 @@ module TableCraft
     end
     
     def add_table_attr(attr)
-      value = public_send(attr)
+      value = instance_variable_get(:"@#{attr}")[0]
       @table_attrs[attr] = value if value
-    end
-    
-    def table_component
-      ::TableCraft::Template::TableComponent.new(
-        @header, 
-        ::TableCraft::DataSource::Adapter.new(*@source).data,
-        @table_attrs)
     end
     
     def template_params
       {
-        title: @title,
-        styles: @styles,
-        body: table_component.call()
+        title: @title[0],
+        styles: Styles.new(*@styles).styles
       }
     end
 

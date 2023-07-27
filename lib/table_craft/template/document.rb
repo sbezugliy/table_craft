@@ -1,7 +1,13 @@
 module TableCraft
   module Template
     class Document < ::Phlex::HTML
-    	def template
+    	def initialize(header, data, table_attrs)
+        @header = header
+        @data = data
+        @table_attrs = table_attrs
+      end
+      
+      def template
     		doctype
 		
     		html do
@@ -11,7 +17,7 @@ module TableCraft
     			end
 			
     			body do
-    				yield(:body)
+            render ::TableCraft::Template::TableComponent.new(@header, @data, @table_attrs)
     			end
     		end
     	end

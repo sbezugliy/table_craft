@@ -1,0 +1,17 @@
+.table {
+  background: #D3D3D3;
+}
+
+.table-head {
+  background: #C0C0C0;
+  color: #FFDF00;
+}
+
+.table-head-row {
+  font-weight: bold;
+  margin: 4px 0px;
+}
+
+.table-data-cell {
+  font-style: italic;
+}
