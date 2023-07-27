@@ -3,7 +3,7 @@
 module TableCraft
   module Output
     class Print < ::TableCraft::Output::Base
-      def output(_path)
+      def output(_path = nil)
         puts HtmlBeautifier.beautify(@html)
       end
     end

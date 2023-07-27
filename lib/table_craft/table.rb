@@ -58,7 +58,9 @@ module TableCraft
     end
 
     def respond_to_missing? *args
-      true
+      return true if ::TableCraft::ATTRIBUTES.include?(args[0])
+
+      false
     end
   end
 end
