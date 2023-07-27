@@ -7,11 +7,11 @@
   color: #FFDF00;
 }
 
-.table-head-row {
+tr.table-head-row {
   font-weight: bold;
   margin: 4px 0px;
 }
 
-.table-data-cell {
+tr.table-data-cell td {
   font-style: italic;
 }

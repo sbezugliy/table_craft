@@ -26,7 +26,7 @@ module TableCraft
 
     def build_document
       @document = ::TableCraft::Template::Document.new(
-        @header,
+        @header[0],
         ::TableCraft::DataSource::Adapter.new(*@source).data,
         @table_attrs
       ).call {|t| template_params[t] }
