@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 build_table do
-  source "csv", "/input/data.csv", start_line: 2
+  source "csv", "input/data.csv"#, start_line: 2
   
   title "Import from CSV to Shell"
   
-  cols 5
-  rows 5
+  # cols 5
+  # rows 5
   
   width "100px"
   height "100px"
@@ -16,16 +16,19 @@ build_table do
 
   header ["#", "Col 1", "Col 2", "Col 3", "Col 4"]
   
+  styles "input/styles_1.css"
+  
+  formatted true
   output "print"
 end
 
 build_table do
-  source "fixed_fields", "/input/data.flf", start_line: 2
+  source "tsv", "input/data.tsv"#, start_line: 2
 
   title "Import from Fixed Length Field File to the File"
   
-  cols 5
-  rows 5
+  # cols 5
+  # rows 5
   
   width "100px"
   height "100px"
@@ -33,6 +36,50 @@ build_table do
   cellpadding "4px"
 
   header (["#", "Col 1", "Col 2", "Col 3", "Col 4"])
+
+  styles "input/styles_2.css"
+  
+  formatted true
+  output "file", "output/table_formatted.html"
+end
+
+
+build_table do
+  source "csv", "input/data.csv"#, start_line: 2
+  
+  title "Import from CSV to Shell"
+  
+  # cols 5
+  # rows 5
+  
+  width "100px"
+  height "100px"
+  border "2px"
+  cellpadding "4px"
+
+  header ["#", "Col 1", "Col 2", "Col 3", "Col 4"]
+  
+  styles "input/styles_1.css"
+  
+  output "print"
+end
+
+build_table do
+  source "tsv", "input/data.tsv"#, start_line: 2
+
+  title "Import from Fixed Length Field File to the File"
+  
+  # cols 5
+  # rows 5
+  
+  width "100px"
+  height "100px"
+  border "2px"
+  cellpadding "4px"
+
+  header (["#", "Col 1", "Col 2", "Col 3", "Col 4"])
+  
+  styles "input/styles_2.css"
   
   output "file", "output/table.html"
 end

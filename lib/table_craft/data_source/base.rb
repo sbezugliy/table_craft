@@ -8,7 +8,6 @@ module TableCraft
       def initialize(source)
         @source = source
       end
-
     end
   end
 end

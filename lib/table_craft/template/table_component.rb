@@ -11,8 +11,8 @@ module TableCraft
     
       def template
     		table(class: "table", **@table_attrs) do
-          render HeadComponent.new(@headers)
-          render BodyComponent.new(@data)
+          render THeadComponent.new(@headers)
+          render TBodyComponent.new(@data)
         end
     	end
     end

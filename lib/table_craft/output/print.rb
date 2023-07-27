@@ -1,7 +1,7 @@
 module TableCraft
   module Output
-    class Shell < ::TableCraft::Output::Base
-      def output
+    class Print < ::TableCraft::Output::Base
+      def output(_path)
         pp HtmlBeautifier.beautify(@html)
       end
     end

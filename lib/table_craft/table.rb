@@ -13,27 +13,21 @@ module TableCraft
     def output=(*args)
       collect_table_attrs
       build_document
+      pp args
       run_output(*args)
     end
     
     private
 
     def run_output(*args)
-      return ::TableCraft::Output::Shell.new(@document) if args[0] == "print"
-      return ::TableCraft::Output::HtmlFile.new(@document).output(args[1]) if args[0] == "file"
-      raise NotImplementedError, "Output processor for type #{args[0]} not implemented"
+      type = args[0][0]
+      path = args[0][1] || nil
+      pp type
+      return ::TableCraft::Output::Adapter.new(type, @document, @formatted).data.output(path)
     end
 
     def build_document
       @document = ::TableCraft::Template::Document.new().call {|t| template_params[t] }
-    end
-    
-    def test_data
-      [
-        [ "1", "Name 1", "Value 1" ],
-        [ "2", "Name 2", "Value 2" ],
-        [ "4", "Name 3", "Value 3" ]
-      ]
     end
     
     def collect_table_attrs
@@ -44,15 +38,11 @@ module TableCraft
       value = public_send(attr)
       @table_attrs[attr] = value if value
     end
-      
-    def table_size
-      { cols: @cols, rows: @rows }
-    end
     
     def table_component
-      ::TableCraft::Templates::TableComponent.new(
-        @headers, 
-        ::TableCraft::DataSource::Adapter(*source), 
+      ::TableCraft::Template::TableComponent.new(
+        @header, 
+        ::TableCraft::DataSource::Adapter.new(*@source).data,
         @table_attrs)
     end
     
@@ -65,7 +55,7 @@ module TableCraft
     end
 
     def method_missing(method, *args)
-      public_send("#{method}=", *args)
+      public_send("#{method}=", args)
     end
   end
 end

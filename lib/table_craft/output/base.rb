@@ -1,7 +1,8 @@
 module TableCraft
   module Output
     class Base
-      def initialize(html, formatted: false)
+      def initialize(html, path=nil, formatted = false)
+        @path = path
         @formatted = formatted
         @html = html
       end

@@ -3,7 +3,7 @@ module TableCraft
     class Csv < ::TableCraft::DataSource::Base
       
       def parse
-        @data = CSV.parse(data)
+        @data = ::CSV.open(@source).to_a
       end
     end
   end

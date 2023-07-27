@@ -7,31 +7,17 @@ module TableCraft
     attr_accessor :selector, :properties
     attr_reader :validation, :css
 
-    def initialize(selector = nil, properties = {})
-      @selector = selector
-      @properties = properties
+    def initialize(styles)
+      @styles = styles
       @validator = CSSValidator.new
-      check_args
-      build
       validate
+      @styles
     end
 
     private
 
-    def build
-      @css = %(#{@selector} {
-#{map_properties}
-})
-    end
-
-    def map_properties
-      @properties.map do |property|
-        "    #{property[0]}: #{property[1]};"
-      end.join("\n")
-    end
-
     def validate
-      @validation = @validator.validate_text(@css)
+      @validation = @validator.validate_text(@styles)
       validation_error unless @validation.errors.empty?
     end
 
@@ -44,13 +30,6 @@ CSS is invalid. Errors:
 
     def format_errors
       @validation.errors.map(&:to_s).join("\n")
-    end
-
-    def check_args
-      raise ArgumentError,
-        "Stylesheet selector should be given." if @selector.empty?
-      raise ArgumentError,
-        "Stylesheet properties should not be empty." if @properties.empty?
     end
   end
 end
