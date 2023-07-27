@@ -27,10 +27,14 @@ module TableCraft
 
     def build_document
       @document = ::TableCraft::Template::Document.new(
-        @header[0],
-        ::TableCraft::DataSource::Adapter.new(*@source).data,
-        @table_attrs,
-      ).call { |t| template_params[t] }
+        ::TableCraft::Template::TableComponent.new(
+          @header[0],
+          ::TableCraft::DataSource::Adapter.new(*@source).data,
+          @table_attrs,
+        ),
+      ).call do |t|
+        template_params[t]
+      end
     end
 
     def collect_table_attrs

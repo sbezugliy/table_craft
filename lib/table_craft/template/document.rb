@@ -3,10 +3,8 @@
 module TableCraft
   module Template
     class Document < ::Phlex::HTML
-      def initialize(header, data, table_attrs)
-        @header = header
-        @data = data
-        @table_attrs = table_attrs
+      def initialize(body_component)
+        @body_component = body_component
         super()
       end
 
@@ -20,7 +18,7 @@ module TableCraft
           end
 
           body do
-            render(::TableCraft::Template::TableComponent.new(@header, @data, @table_attrs))
+            render(@body_component)
           end
         end
       end

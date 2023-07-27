@@ -2,6 +2,9 @@
 
 require "table_craft"
 
+require "test_components/test_body_component"
+require "phlex/testing/nokogiri"
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
