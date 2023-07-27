@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module TableCraft
   module Template
     class TBodyComponent < ::Phlex::HTML
-    	def initialize(data=[])
+      def initialize(data = [])
         @data = data
         super()
       end
-    
+
       def template
         tbody(class: "table-data") do
           @data.each do |row|
@@ -16,7 +18,7 @@ module TableCraft
             end
           end
         end
-    	end
+      end
     end
   end
 end

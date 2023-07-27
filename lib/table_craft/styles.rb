@@ -11,7 +11,6 @@ module TableCraft
       @styles = read(path)
       @validator = CSSValidator.new
       validate
-      @styles
     end
 
     private

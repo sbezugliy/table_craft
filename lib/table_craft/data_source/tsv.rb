@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TableCraft
   module DataSource
     class Tsv < ::TableCraft::DataSource::Base

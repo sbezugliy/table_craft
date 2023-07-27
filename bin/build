@@ -7,4 +7,4 @@ require "table_craft"
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-::TableCraft.source(ARGV[0])
+TableCraft.source(ARGV[0])
