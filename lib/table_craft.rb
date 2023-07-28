@@ -17,8 +17,6 @@ module TableCraft
   ATTRIBUTES = [
     :source,
     :title,
-    :cols,
-    :rows,
     :border,
     :cellpadding,
     :width,

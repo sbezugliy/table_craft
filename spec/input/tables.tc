@@ -6,9 +6,6 @@ build_table do
   
   title "Import from CSV to Shell"
   
-  # cols 5
-  # rows 5
-  
   width "100px"
   height "100px"
   border "2"
