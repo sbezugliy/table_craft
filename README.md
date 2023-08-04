@@ -6,12 +6,13 @@ The DSL should allow users to easily create HTML tables without the need for ext
 
 The DSL should support the following features:
 
-Creating a table with a specified number of rows and columns
-Setting the table's width and height
-Specifying the table's border and cellpadding values
-Adding headers to the table
-Adding data to the table
-Styling the table, headers, and data cells with CSS classes
+ - Creating a table with a specified number of rows and columns
+ - Setting the table's width and height
+ - Specifying the table's border and cellpadding values
+ - Adding headers to the table
+ - Adding data to the table
+ - Styling the table, headers, and data cells with CSS classes
+
 
 To complete the task, you will need to write a Ruby module that defines the DSL and a set of tests to ensure that the DSL is working correctly. The DSL should be easy to use and read, with clear and concise syntax.
 
